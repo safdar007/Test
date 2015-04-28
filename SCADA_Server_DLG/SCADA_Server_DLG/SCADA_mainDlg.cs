@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System;
 using System.Net;
 using System.Net.Sockets;
 using System.Linq;
@@ -25,6 +24,7 @@ namespace SCADA_Server_DLG
         //static List<string> discntlist1 = new List<string>();
         static List<string> conctlist11 = new List<string>();
         private static Mutex mut = new Mutex();
+        static byte[] msg;
         static long socketCount = 0;
         static int x = 0;
         static int y = 0;
@@ -88,10 +88,9 @@ namespace SCADA_Server_DLG
 
                         for (int l = (int)socketCount; l < currentSocketCount; l++)
                         {
+                            y++;
                             socketCnct = socketlist[l];
                             Socket handleSocket = (Socket)socketlist[l];
-                            x = l;
-                            x++;
                             while (true)
                             {
                                 buffer = new byte[1024];
@@ -107,8 +106,8 @@ namespace SCADA_Server_DLG
                             Console.WriteLine("Text received : {0},{1}", data, handleSocket.LocalEndPoint.ToString());
 
                             // Echo the data back to the client.
-                            byte[] msg = Encoding.ASCII.GetBytes("This data is sent by SACADA's Server" + " + IP & Port =" + handleSocket.LocalEndPoint.ToString());
-
+                            msg = Encoding.ASCII.GetBytes("This data is sent by SACADA's Server" + " + IP & Port =" + handleSocket.LocalEndPoint.ToString());
+                             
                             handleSocket.Send(msg);
                             //handleSocket.Shutdown(SocketShutdown.Both);
                             //handleSocket.Close();
@@ -129,7 +128,6 @@ namespace SCADA_Server_DLG
                         {
                             if (mut.WaitOne(1000))
                             {
-                                y = foreachvarriable;
                                 discntlist1.Add(socketlist[lp]);
                                 socketlist.RemoveAt(lp);
                             }// Release the Mutex.
@@ -204,20 +202,28 @@ namespace SCADA_Server_DLG
 
         private void btnShow_Click(object sender, System.EventArgs e)
         {
-            
-            if (y > 0)
+
+            //lstCnt.Items.Clear();
+            lstDiscnt.Items.Clear();
+            if (msg != null)
             {
-                dissconnectClient.Value = y; 
-            }
-
-            newClient.Value = x;
+                labelmessage.Text = data.ToString();
+            } 
+            newClient.Text = y.ToString();
             totalClientConnected.Text = socketlist.Count.ToString();
-            lstDiscnt.Items.AddRange(discntlist1.ToArray());
+           // lstDiscnt.Items.AddRange(discntlist1.ToArray());
+            for (int index = 0; index < discntlist1.Count; index++)
+            {
+                Socket client = discntlist1[index];
+                lstDiscnt.Items.Add(client.RemoteEndPoint);
 
+                
+            }
             for (int index = 0; index < socketlist.Count; index++)
             {
                 Socket client = socketlist[index];
                 lstCnt.Items.Add(client.RemoteEndPoint);
+                
             }
         }
 

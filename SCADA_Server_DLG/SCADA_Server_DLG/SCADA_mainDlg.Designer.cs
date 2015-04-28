@@ -28,46 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.numericUpDownPort = new System.Windows.Forms.NumericUpDown();
             this.lblPort = new System.Windows.Forms.Label();
             this.btnStartStop = new System.Windows.Forms.Button();
-            this.newClient = new System.Windows.Forms.NumericUpDown();
             this.newClientConnected = new System.Windows.Forms.Label();
             this.totalClient = new System.Windows.Forms.Label();
-            this.dissconnectt = new System.Windows.Forms.Label();
-            this.dissconnectClient = new System.Windows.Forms.NumericUpDown();
+            this.message = new System.Windows.Forms.Label();
             this.btnShow = new System.Windows.Forms.Button();
             this.lstCnt = new System.Windows.Forms.ListBox();
             this.lstDiscnt = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.totalClientConnected = new System.Windows.Forms.Label();
+            this.labelmessage = new System.Windows.Forms.Label();
+            this.newClient = new System.Windows.Forms.Label();
+            this.numericUpDownPort = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPort)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.newClient)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dissconnectClient)).BeginInit();
             this.SuspendLayout();
-            // 
-            // numericUpDownPort
-            // 
-            this.numericUpDownPort.Location = new System.Drawing.Point(152, 74);
-            this.numericUpDownPort.Maximum = new decimal(new int[] {
-            65535,
-            0,
-            0,
-            0});
-            this.numericUpDownPort.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDownPort.Name = "numericUpDownPort";
-            this.numericUpDownPort.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDownPort.TabIndex = 0;
-            this.numericUpDownPort.Value = new decimal(new int[] {
-            11,
-            0,
-            0,
-            0});
             // 
             // lblPort
             // 
@@ -88,18 +64,6 @@
             this.btnStartStop.UseVisualStyleBackColor = true;
             this.btnStartStop.Click += new System.EventHandler(this.btnStartStop_Click);
             // 
-            // newClient
-            // 
-            this.newClient.Location = new System.Drawing.Point(152, 106);
-            this.newClient.Name = "newClient";
-            this.newClient.Size = new System.Drawing.Size(120, 20);
-            this.newClient.TabIndex = 3;
-            this.newClient.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            // 
             // newClientConnected
             // 
             this.newClientConnected.AutoSize = true;
@@ -118,26 +82,14 @@
             this.totalClient.TabIndex = 6;
             this.totalClient.Text = "Total Client Connected";
             // 
-            // dissconnectt
+            // message
             // 
-            this.dissconnectt.AutoSize = true;
-            this.dissconnectt.Location = new System.Drawing.Point(15, 140);
-            this.dissconnectt.Name = "dissconnectt";
-            this.dissconnectt.Size = new System.Drawing.Size(107, 13);
-            this.dissconnectt.TabIndex = 8;
-            this.dissconnectt.Text = "Client Dissconnected";
-            // 
-            // dissconnectClient
-            // 
-            this.dissconnectClient.Location = new System.Drawing.Point(151, 133);
-            this.dissconnectClient.Name = "dissconnectClient";
-            this.dissconnectClient.Size = new System.Drawing.Size(120, 20);
-            this.dissconnectClient.TabIndex = 7;
-            this.dissconnectClient.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
+            this.message.AutoSize = true;
+            this.message.Location = new System.Drawing.Point(15, 140);
+            this.message.Name = "message";
+            this.message.Size = new System.Drawing.Size(105, 13);
+            this.message.TabIndex = 8;
+            this.message.Text = "Message From Client";
             // 
             // btnShow
             // 
@@ -186,38 +138,72 @@
             // totalClientConnected
             // 
             this.totalClientConnected.AutoSize = true;
-            this.totalClientConnected.Location = new System.Drawing.Point(162, 166);
+            this.totalClientConnected.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.totalClientConnected.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.totalClientConnected.Location = new System.Drawing.Point(162, 164);
             this.totalClientConnected.Name = "totalClientConnected";
-            this.totalClientConnected.Size = new System.Drawing.Size(35, 13);
+            this.totalClientConnected.Size = new System.Drawing.Size(15, 15);
             this.totalClientConnected.TabIndex = 14;
-            this.totalClientConnected.Text = "label3";
+            this.totalClientConnected.Text = "0";
+            // 
+            // labelmessage
+            // 
+            this.labelmessage.AutoSize = true;
+            this.labelmessage.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelmessage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.labelmessage.Location = new System.Drawing.Point(162, 140);
+            this.labelmessage.Name = "labelmessage";
+            this.labelmessage.Size = new System.Drawing.Size(58, 15);
+            this.labelmessage.TabIndex = 15;
+            this.labelmessage.Text = "Messaage";
+            // 
+            // newClient
+            // 
+            this.newClient.AutoSize = true;
+            this.newClient.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.newClient.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.newClient.Location = new System.Drawing.Point(162, 113);
+            this.newClient.Name = "newClient";
+            this.newClient.Size = new System.Drawing.Size(15, 15);
+            this.newClient.TabIndex = 16;
+            this.newClient.Text = "0";
+            // 
+            // numericUpDownPort
+            // 
+            this.numericUpDownPort.Location = new System.Drawing.Point(162, 77);
+            this.numericUpDownPort.Name = "numericUpDownPort";
+            this.numericUpDownPort.Size = new System.Drawing.Size(49, 20);
+            this.numericUpDownPort.TabIndex = 18;
+            this.numericUpDownPort.Value = new decimal(new int[] {
+            11,
+            0,
+            0,
+            0});
             // 
             // SCADA_mainDlg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Controls.Add(this.numericUpDownPort);
+            this.Controls.Add(this.newClient);
+            this.Controls.Add(this.labelmessage);
             this.Controls.Add(this.totalClientConnected);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lstDiscnt);
             this.Controls.Add(this.lstCnt);
             this.Controls.Add(this.btnShow);
-            this.Controls.Add(this.dissconnectt);
-            this.Controls.Add(this.dissconnectClient);
+            this.Controls.Add(this.message);
             this.Controls.Add(this.totalClient);
             this.Controls.Add(this.newClientConnected);
-            this.Controls.Add(this.newClient);
             this.Controls.Add(this.btnStartStop);
             this.Controls.Add(this.lblPort);
-            this.Controls.Add(this.numericUpDownPort);
             this.MaximumSize = new System.Drawing.Size(300, 300);
             this.MinimumSize = new System.Drawing.Size(300, 38);
             this.Name = "SCADA_mainDlg";
             this.Text = "SCADA Server";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPort)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.newClient)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dissconnectClient)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -225,20 +211,20 @@
 
         #endregion
 
-        private System.Windows.Forms.NumericUpDown numericUpDownPort;
         private System.Windows.Forms.Label lblPort;
         private System.Windows.Forms.Button btnStartStop;
-        private System.Windows.Forms.NumericUpDown newClient;
         private System.Windows.Forms.Label newClientConnected;
         private System.Windows.Forms.Label totalClient;
-        private System.Windows.Forms.Label dissconnectt;
-        private System.Windows.Forms.NumericUpDown dissconnectClient;
+        private System.Windows.Forms.Label message;
         private System.Windows.Forms.Button btnShow;
         private System.Windows.Forms.ListBox lstCnt;
         private System.Windows.Forms.ListBox lstDiscnt;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label totalClientConnected;
+        private System.Windows.Forms.Label labelmessage;
+        private System.Windows.Forms.Label newClient;
+        private System.Windows.Forms.NumericUpDown numericUpDownPort;
     }
 }
 

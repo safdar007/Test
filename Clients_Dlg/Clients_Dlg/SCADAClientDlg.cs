@@ -102,7 +102,7 @@ namespace Clients_Dlg
                 if (scadaServerSatate == CLIENT_STATES.Disconnect)
                 {
                     scadaServerSatate = CLIENT_STATES.Connect;
-                    scadaPort = (int)portAddress.Value;//???
+                    scadaPort = (int)portAddress.Value;
                     iPAdress = txtServerIP.Text;
                     btnConnectDisconnect.Text = "Disconnect";
                     btnConnectDisconnect.BackColor = System.Drawing.Color.Green;
