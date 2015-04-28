@@ -211,7 +211,7 @@ namespace SCADA_Server_DLG
             }
 
             newClient.Value = x;
-            totalClientConnected.Value = socketlist.Count;
+            totalClientConnected.Text = socketlist.Count.ToString();
             lstDiscnt.Items.AddRange(discntlist1.ToArray());
 
             for (int index = 0; index < socketlist.Count; index++)

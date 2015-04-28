@@ -32,7 +32,6 @@
             this.lblPort = new System.Windows.Forms.Label();
             this.btnStartStop = new System.Windows.Forms.Button();
             this.newClient = new System.Windows.Forms.NumericUpDown();
-            this.totalClientConnected = new System.Windows.Forms.NumericUpDown();
             this.newClientConnected = new System.Windows.Forms.Label();
             this.totalClient = new System.Windows.Forms.Label();
             this.dissconnectt = new System.Windows.Forms.Label();
@@ -42,9 +41,9 @@
             this.lstDiscnt = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.totalClientConnected = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPort)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newClient)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.totalClientConnected)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dissconnectClient)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,18 +96,6 @@
             this.newClient.TabIndex = 3;
             this.newClient.Value = new decimal(new int[] {
             100,
-            0,
-            0,
-            0});
-            // 
-            // totalClientConnected
-            // 
-            this.totalClientConnected.Location = new System.Drawing.Point(152, 164);
-            this.totalClientConnected.Name = "totalClientConnected";
-            this.totalClientConnected.Size = new System.Drawing.Size(120, 20);
-            this.totalClientConnected.TabIndex = 4;
-            this.totalClientConnected.Value = new decimal(new int[] {
-            10,
             0,
             0,
             0});
@@ -196,11 +183,21 @@
             this.label2.TabIndex = 13;
             this.label2.Text = "Disconnected Clients";
             // 
+            // totalClientConnected
+            // 
+            this.totalClientConnected.AutoSize = true;
+            this.totalClientConnected.Location = new System.Drawing.Point(162, 166);
+            this.totalClientConnected.Name = "totalClientConnected";
+            this.totalClientConnected.Size = new System.Drawing.Size(35, 13);
+            this.totalClientConnected.TabIndex = 14;
+            this.totalClientConnected.Text = "label3";
+            // 
             // SCADA_mainDlg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Controls.Add(this.totalClientConnected);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lstDiscnt);
@@ -210,7 +207,6 @@
             this.Controls.Add(this.dissconnectClient);
             this.Controls.Add(this.totalClient);
             this.Controls.Add(this.newClientConnected);
-            this.Controls.Add(this.totalClientConnected);
             this.Controls.Add(this.newClient);
             this.Controls.Add(this.btnStartStop);
             this.Controls.Add(this.lblPort);
@@ -221,7 +217,6 @@
             this.Text = "SCADA Server";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPort)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newClient)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.totalClientConnected)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dissconnectClient)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -234,7 +229,6 @@
         private System.Windows.Forms.Label lblPort;
         private System.Windows.Forms.Button btnStartStop;
         private System.Windows.Forms.NumericUpDown newClient;
-        private System.Windows.Forms.NumericUpDown totalClientConnected;
         private System.Windows.Forms.Label newClientConnected;
         private System.Windows.Forms.Label totalClient;
         private System.Windows.Forms.Label dissconnectt;
@@ -244,6 +238,7 @@
         private System.Windows.Forms.ListBox lstDiscnt;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label totalClientConnected;
     }
 }
 

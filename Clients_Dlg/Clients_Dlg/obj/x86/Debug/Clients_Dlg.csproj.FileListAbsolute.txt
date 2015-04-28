@@ -7,3 +7,5 @@ C:\Users\Safdar\Documents\Visual Studio 2010\Projects\Clients_Dlg\Clients_Dlg\bi
 C:\Users\Safdar\Documents\Visual Studio 2010\Projects\Clients_Dlg\Clients_Dlg\obj\x86\Debug\Clients_Dlg.exe
 C:\Users\Safdar\Documents\Visual Studio 2010\Projects\Clients_Dlg\Clients_Dlg\obj\x86\Debug\Clients_Dlg.pdb
 C:\Users\Safdar\Documents\Visual Studio 2010\Projects\Clients_Dlg\Clients_Dlg\obj\x86\Debug\Clients_Dlg.frmMain.resources
+E:\GitTest\Clients_Dlg\Clients_Dlg\obj\x86\Debug\Clients_Dlg.exe
+E:\GitTest\Clients_Dlg\Clients_Dlg\obj\x86\Debug\Clients_Dlg.pdb

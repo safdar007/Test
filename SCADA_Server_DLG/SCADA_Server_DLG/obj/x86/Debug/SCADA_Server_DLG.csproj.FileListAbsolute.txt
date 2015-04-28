@@ -7,3 +7,10 @@ c:\users\safdar\documents\visual studio 2010\Projects\SCADA_Server_DLG\SCADA_Ser
 c:\users\safdar\documents\visual studio 2010\Projects\SCADA_Server_DLG\SCADA_Server_DLG\obj\x86\Debug\SCADA_Server_DLG.exe
 c:\users\safdar\documents\visual studio 2010\Projects\SCADA_Server_DLG\SCADA_Server_DLG\obj\x86\Debug\SCADA_Server_DLG.pdb
 c:\users\safdar\documents\visual studio 2010\Projects\SCADA_Server_DLG\SCADA_Server_DLG\obj\x86\Debug\SCADA_Server_DLG.SCADA_mainDlg.resources
+E:\GitTest\SCADA_Server_DLG\SCADA_Server_DLG\obj\x86\Debug\SCADA_Server_DLG.exe
+E:\GitTest\SCADA_Server_DLG\SCADA_Server_DLG\obj\x86\Debug\SCADA_Server_DLG.pdb
+E:\GitTest\SCADA_Server_DLG\SCADA_Server_DLG\obj\x86\Debug\SCADA_Server_DLG.SCADA_mainDlg.resources
+E:\GitTest\SCADA_Server_DLG\SCADA_Server_DLG\obj\x86\Debug\SCADA_Server_DLG.Properties.Resources.resources
+E:\GitTest\SCADA_Server_DLG\SCADA_Server_DLG\obj\x86\Debug\SCADA_Server_DLG.csproj.GenerateResource.Cache
+E:\GitTest\SCADA_Server_DLG\SCADA_Server_DLG\bin\Debug\SCADA_Server_DLG.exe
+E:\GitTest\SCADA_Server_DLG\SCADA_Server_DLG\bin\Debug\SCADA_Server_DLG.pdb
