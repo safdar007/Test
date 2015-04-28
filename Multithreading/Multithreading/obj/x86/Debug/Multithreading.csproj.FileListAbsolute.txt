@@ -1,0 +1,5 @@
+c:\users\safdar\documents\visual studio 2010\Projects\Multithreading\Multithreading\bin\Debug\Multithreading.exe
+c:\users\safdar\documents\visual studio 2010\Projects\Multithreading\Multithreading\bin\Debug\Multithreading.pdb
+c:\users\safdar\documents\visual studio 2010\Projects\Multithreading\Multithreading\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\safdar\documents\visual studio 2010\Projects\Multithreading\Multithreading\obj\x86\Debug\Multithreading.exe
+c:\users\safdar\documents\visual studio 2010\Projects\Multithreading\Multithreading\obj\x86\Debug\Multithreading.pdb

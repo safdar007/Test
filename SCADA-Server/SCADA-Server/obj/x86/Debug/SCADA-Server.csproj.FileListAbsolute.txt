@@ -1,0 +1,5 @@
+c:\users\safdar\documents\visual studio 2010\Projects\SCADA-Server\SCADA-Server\bin\Debug\SCADA-Server.exe
+c:\users\safdar\documents\visual studio 2010\Projects\SCADA-Server\SCADA-Server\bin\Debug\SCADA-Server.pdb
+c:\users\safdar\documents\visual studio 2010\Projects\SCADA-Server\SCADA-Server\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\safdar\documents\visual studio 2010\Projects\SCADA-Server\SCADA-Server\obj\x86\Debug\SCADA-Server.exe
+c:\users\safdar\documents\visual studio 2010\Projects\SCADA-Server\SCADA-Server\obj\x86\Debug\SCADA-Server.pdb

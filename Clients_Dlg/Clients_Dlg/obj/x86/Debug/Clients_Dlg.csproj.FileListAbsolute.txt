@@ -1,0 +1,9 @@
+c:\users\safdar\documents\visual studio 2010\Projects\Clients_Dlg\Clients_Dlg\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\safdar\documents\visual studio 2010\Projects\Clients_Dlg\Clients_Dlg\obj\x86\Debug\Clients_Dlg.Properties.Resources.resources
+c:\users\safdar\documents\visual studio 2010\Projects\Clients_Dlg\Clients_Dlg\obj\x86\Debug\GenerateResource.read.1.tlog
+c:\users\safdar\documents\visual studio 2010\Projects\Clients_Dlg\Clients_Dlg\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Safdar\Documents\Visual Studio 2010\Projects\Clients_Dlg\Clients_Dlg\bin\Debug\Clients_Dlg.exe
+C:\Users\Safdar\Documents\Visual Studio 2010\Projects\Clients_Dlg\Clients_Dlg\bin\Debug\Clients_Dlg.pdb
+C:\Users\Safdar\Documents\Visual Studio 2010\Projects\Clients_Dlg\Clients_Dlg\obj\x86\Debug\Clients_Dlg.exe
+C:\Users\Safdar\Documents\Visual Studio 2010\Projects\Clients_Dlg\Clients_Dlg\obj\x86\Debug\Clients_Dlg.pdb
+C:\Users\Safdar\Documents\Visual Studio 2010\Projects\Clients_Dlg\Clients_Dlg\obj\x86\Debug\Clients_Dlg.frmMain.resources

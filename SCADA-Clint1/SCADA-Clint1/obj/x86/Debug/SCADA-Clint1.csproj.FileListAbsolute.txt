@@ -1,0 +1,5 @@
+c:\users\safdar\documents\visual studio 2010\Projects\SCADA-Clint1\SCADA-Clint1\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\safdar\documents\visual studio 2010\Projects\SCADA-Clint1\SCADA-Clint1\bin\Debug\SCADA-Clint1.exe
+c:\users\safdar\documents\visual studio 2010\Projects\SCADA-Clint1\SCADA-Clint1\bin\Debug\SCADA-Clint1.pdb
+c:\users\safdar\documents\visual studio 2010\Projects\SCADA-Clint1\SCADA-Clint1\obj\x86\Debug\SCADA-Clint1.exe
+c:\users\safdar\documents\visual studio 2010\Projects\SCADA-Clint1\SCADA-Clint1\obj\x86\Debug\SCADA-Clint1.pdb
