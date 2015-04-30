@@ -14,3 +14,4 @@ E:\GitTest\SCADA_Server_DLG\SCADA_Server_DLG\obj\x86\Debug\SCADA_Server_DLG.Prop
 E:\GitTest\SCADA_Server_DLG\SCADA_Server_DLG\obj\x86\Debug\SCADA_Server_DLG.csproj.GenerateResource.Cache
 E:\GitTest\SCADA_Server_DLG\SCADA_Server_DLG\bin\Debug\SCADA_Server_DLG.exe
 E:\GitTest\SCADA_Server_DLG\SCADA_Server_DLG\bin\Debug\SCADA_Server_DLG.pdb
+E:\GitTest\SCADA_Server_DLG\SCADA_Server_DLG\obj\x86\Debug\SCADA_Server_DLG.csprojResolveAssemblyReference.cache

@@ -28,20 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblPort = new System.Windows.Forms.Label();
             this.btnStartStop = new System.Windows.Forms.Button();
             this.newClientConnected = new System.Windows.Forms.Label();
             this.totalClient = new System.Windows.Forms.Label();
             this.message = new System.Windows.Forms.Label();
-            this.btnShow = new System.Windows.Forms.Button();
-            this.lstCnt = new System.Windows.Forms.ListBox();
-            this.lstDiscnt = new System.Windows.Forms.ListBox();
+            this.lstConnectedClients = new System.Windows.Forms.ListBox();
+            this.lstDisconnectIPs = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.totalClientConnected = new System.Windows.Forms.Label();
             this.labelmessage = new System.Windows.Forms.Label();
             this.newClient = new System.Windows.Forms.Label();
             this.numericUpDownPort = new System.Windows.Forms.NumericUpDown();
+            this.timerConnectedClients = new System.Windows.Forms.Timer(this.components);
+            this.listAllConnected = new System.Windows.Forms.ListBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPort)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,31 +95,21 @@
             this.message.TabIndex = 8;
             this.message.Text = "Message From Client";
             // 
-            // btnShow
+            // lstConnectedClients
             // 
-            this.btnShow.Location = new System.Drawing.Point(165, 209);
-            this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(107, 23);
-            this.btnShow.TabIndex = 9;
-            this.btnShow.Text = "Show Values";
-            this.btnShow.UseVisualStyleBackColor = true;
-            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
+            this.lstConnectedClients.FormattingEnabled = true;
+            this.lstConnectedClients.Location = new System.Drawing.Point(4, 12);
+            this.lstConnectedClients.Name = "lstConnectedClients";
+            this.lstConnectedClients.Size = new System.Drawing.Size(137, 56);
+            this.lstConnectedClients.TabIndex = 10;
             // 
-            // lstCnt
+            // lstDisconnectIPs
             // 
-            this.lstCnt.FormattingEnabled = true;
-            this.lstCnt.Location = new System.Drawing.Point(4, 12);
-            this.lstCnt.Name = "lstCnt";
-            this.lstCnt.Size = new System.Drawing.Size(138, 56);
-            this.lstCnt.TabIndex = 10;
-            // 
-            // lstDiscnt
-            // 
-            this.lstDiscnt.FormattingEnabled = true;
-            this.lstDiscnt.Location = new System.Drawing.Point(147, 12);
-            this.lstDiscnt.Name = "lstDiscnt";
-            this.lstDiscnt.Size = new System.Drawing.Size(137, 56);
-            this.lstDiscnt.TabIndex = 11;
+            this.lstDisconnectIPs.FormattingEnabled = true;
+            this.lstDisconnectIPs.Location = new System.Drawing.Point(136, 12);
+            this.lstDisconnectIPs.Name = "lstDisconnectIPs";
+            this.lstDisconnectIPs.Size = new System.Drawing.Size(109, 56);
+            this.lstDisconnectIPs.TabIndex = 11;
             // 
             // label1
             // 
@@ -129,7 +123,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(149, -1);
+            this.label2.Location = new System.Drawing.Point(142, -1);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(107, 13);
             this.label2.TabIndex = 13;
@@ -180,26 +174,60 @@
             0,
             0});
             // 
+            // timerConnectedClients
+            // 
+            this.timerConnectedClients.Interval = 1000;
+            this.timerConnectedClients.Tick += new System.EventHandler(this.timerConnectedClients_Tick);
+            // 
+            // listAllConnected
+            // 
+            this.listAllConnected.FormattingEnabled = true;
+            this.listAllConnected.Location = new System.Drawing.Point(248, 14);
+            this.listAllConnected.Name = "listAllConnected";
+            this.listAllConnected.Size = new System.Drawing.Size(137, 199);
+            this.listAllConnected.TabIndex = 19;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(266, -1);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(107, 13);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "All Connected Clients";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(253, 227);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(129, 23);
+            this.button1.TabIndex = 21;
+            this.button1.Text = "Disconnent Selected IP";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // SCADA_mainDlg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(384, 262);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.listAllConnected);
             this.Controls.Add(this.numericUpDownPort);
             this.Controls.Add(this.newClient);
             this.Controls.Add(this.labelmessage);
             this.Controls.Add(this.totalClientConnected);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lstDiscnt);
-            this.Controls.Add(this.lstCnt);
-            this.Controls.Add(this.btnShow);
+            this.Controls.Add(this.lstDisconnectIPs);
+            this.Controls.Add(this.lstConnectedClients);
             this.Controls.Add(this.message);
             this.Controls.Add(this.totalClient);
             this.Controls.Add(this.newClientConnected);
             this.Controls.Add(this.btnStartStop);
             this.Controls.Add(this.lblPort);
-            this.MaximumSize = new System.Drawing.Size(300, 300);
+            this.MaximumSize = new System.Drawing.Size(400, 300);
             this.MinimumSize = new System.Drawing.Size(300, 38);
             this.Name = "SCADA_mainDlg";
             this.Text = "SCADA Server";
@@ -216,15 +244,18 @@
         private System.Windows.Forms.Label newClientConnected;
         private System.Windows.Forms.Label totalClient;
         private System.Windows.Forms.Label message;
-        private System.Windows.Forms.Button btnShow;
-        private System.Windows.Forms.ListBox lstCnt;
-        private System.Windows.Forms.ListBox lstDiscnt;
+        private System.Windows.Forms.ListBox lstConnectedClients;
+        private System.Windows.Forms.ListBox lstDisconnectIPs;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label totalClientConnected;
         private System.Windows.Forms.Label labelmessage;
         private System.Windows.Forms.Label newClient;
         private System.Windows.Forms.NumericUpDown numericUpDownPort;
+        private System.Windows.Forms.Timer timerConnectedClients;
+        private System.Windows.Forms.ListBox listAllConnected;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button1;
     }
 }
 
