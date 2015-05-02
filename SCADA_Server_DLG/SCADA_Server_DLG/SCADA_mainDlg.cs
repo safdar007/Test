@@ -21,24 +21,25 @@ namespace SCADA_Server_DLG
     {
         static List<Socket> socketlist = new List<Socket>();
         static List<Socket> discntlist1 = new List<Socket>();
-        //static List<string> discntlist1 = new List<string>();
         static List<string> conctlist11 = new List<string>();
         private static Mutex mut = new Mutex();
         static byte[] msg;
+        
         static long socketCount = 0;
-        static int x = 0;
+        static int oldMsg = 0;
         static int y = 0;
-        static int z = 0;
-        static long clientDissconnect = 0;
+        static int newMsgReceived = 0;
+        string historyMsg = " ";
         static Socket port;
         static Socket socketCnct;
-        static Socket socketDiscnct;
+        static Socket clientMsgIP;
         public static string data = null;
         enum SERVER_STATES { STOP = 0, RUNNING = 1 };
         static SERVER_STATES scadaServerSatate;
         static int scadaPort = 0;
         static bool flstru = false;
-
+        static byte[] buffer;
+        public static string oldClientSendData = null;
         
         static bool SocketConnected(Socket client)
         {
@@ -80,9 +81,10 @@ namespace SCADA_Server_DLG
         {
             while (scadaServerSatate == SERVER_STATES.RUNNING)
             {
-                byte[] buffer = new Byte[1024];
+                buffer = new Byte[1024];
                 long currentSocketCount = socketlist.Count;
                 //socketlist.Add(port);
+                //check the new connection request
                 if (currentSocketCount > socketCount)
                 {
                     long newSockets = currentSocketCount - socketCount;
@@ -92,10 +94,13 @@ namespace SCADA_Server_DLG
                             y++;
                             socketCnct = socketlist[l];
                             Socket handleSocket = (Socket)socketlist[l];
+                            clientMsgIP = handleSocket;
                             while (true)
                             {
                                 buffer = new byte[1024];
                                 int getdata = handleSocket.Receive(buffer);
+                                if (getdata > 0)
+                                
                                 data += Encoding.ASCII.GetString(buffer, 0, getdata);
                                 if (data.IndexOf("<END>") > -1)
                                 {
@@ -118,6 +123,8 @@ namespace SCADA_Server_DLG
                     socketCount = currentSocketCount;
 
                 }// if (currentSocketCount > socketCount)
+                
+                //if client disconect Remove that socket
                 int foreachvarriable = 0;
                 if (socketlist.Count > 0)
                 {
@@ -134,10 +141,13 @@ namespace SCADA_Server_DLG
                             }// Release the Mutex.
                             mut.ReleaseMutex();
 
-                        }
+                        }//if (flstru == false)
+
                         foreachvarriable++;
-                    }
-                }
+                    
+                    }//for (int lp = 0; lp < socketlist.Count; lp++) // Loop through List with foreach.
+                }//if (socketlist.Count > 0)
+
                 Thread.Sleep(1000);
             }//while true
 
@@ -202,14 +212,14 @@ namespace SCADA_Server_DLG
             }            
         }
 
-        private void btnShow_Click(object sender, System.EventArgs e)
+        /*private void btnShow_Click(object sender, System.EventArgs e)
         {
 
             lstConnectedClients.Items.Clear();
             lstDisconnectIPs.Items.Clear();
             if (msg != null)
             {
-                labelmessage.Text = data.ToString();
+                rTxtBoxMessageHistory.Text = data.ToString();
             } 
             newClient.Text = y.ToString();
             totalClientConnected.Text = socketlist.Count.ToString();
@@ -218,30 +228,26 @@ namespace SCADA_Server_DLG
             {
                 Socket client = discntlist1[index];
                 lstDisconnectIPs.Items.Add(client.RemoteEndPoint);
-
-                
             }
             for (int index = 0; index < socketlist.Count; index++)
             {
                 Socket client = socketlist[index];
                 lstConnectedClients.Items.Add(client.RemoteEndPoint);
-                
             }
-        }
+        }*/
 
         private void timerConnectedClients_Tick(object sender, EventArgs e)
         {
-            string selectedItem;
             lstDisconnectIPs.Items.Clear();
-            
-            if (msg != null)
-            {
-                labelmessage.Text = data.ToString();
-            }
-
             newClient.Text = y.ToString();
             totalClientConnected.Text = socketlist.Count.ToString();
-            // lstDisconnectIPs.Items.AddRange(discntlist1.ToArray());
+
+            if (data != null)
+            {
+           //     rTxtBoxMessageHistory.Text = data + clientMsgIP.RemoteEndPoint;
+             //   data = null;
+            }
+
             for (int index = 0; index < discntlist1.Count; index++)
             {
                 Socket client = discntlist1[index];
@@ -252,20 +258,34 @@ namespace SCADA_Server_DLG
             {
                 lstConnectedClients.Items.Clear();
                 Socket client = socketlist[index];
-                lstConnectedClients.Items.Add(client.RemoteEndPoint);/////////
+                lstConnectedClients.Items.Add(client.RemoteEndPoint);
             }
             
             //check and add new client connection in all connected list
             for (int index = 0; index < socketlist.Count; index++)
             {
+                string receiveMsg = "";
                 Socket client = socketlist[index];
                 string s = client.RemoteEndPoint.ToString();
+                while(client.Available > 0 )
+                {
+                    int getdata = client.Receive(buffer);
+                    if (getdata > 0)
+                    {   receiveMsg += Encoding.ASCII.GetString(buffer, 0, getdata);  }
+                }//while(client.Available > 0 )
+                if (receiveMsg.Length > 0)
+                {
+
+                    rTxtBoxMessageHistory.Text += receiveMsg + client.RemoteEndPoint; 
+                }
+
                 bool found = false;
                 for (int itemIndex = 0; itemIndex < listAllConnected.Items.Count; itemIndex++ )
                 {
                     string currentClient = listAllConnected.Items[itemIndex].ToString();
                     if (s == currentClient)
                     {
+                        
                         found = true;
                         if (listAllConnected.SelectedItem != null)
                         
@@ -289,7 +309,6 @@ namespace SCADA_Server_DLG
                 {
                     Socket client = socketlist[index];
                     string s = client.RemoteEndPoint.ToString();
-
                     if (s == currentClient)
                     {
                         found = true;

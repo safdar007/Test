@@ -33,19 +33,21 @@
             this.btnStartStop = new System.Windows.Forms.Button();
             this.newClientConnected = new System.Windows.Forms.Label();
             this.totalClient = new System.Windows.Forms.Label();
-            this.message = new System.Windows.Forms.Label();
             this.lstConnectedClients = new System.Windows.Forms.ListBox();
             this.lstDisconnectIPs = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.totalClientConnected = new System.Windows.Forms.Label();
-            this.labelmessage = new System.Windows.Forms.Label();
             this.newClient = new System.Windows.Forms.Label();
             this.numericUpDownPort = new System.Windows.Forms.NumericUpDown();
             this.timerConnectedClients = new System.Windows.Forms.Timer(this.components);
             this.listAllConnected = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.rTxtBoxMessageHistory = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPort)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +62,7 @@
             // 
             // btnStartStop
             // 
-            this.btnStartStop.Location = new System.Drawing.Point(39, 209);
+            this.btnStartStop.Location = new System.Drawing.Point(18, 327);
             this.btnStartStop.Name = "btnStartStop";
             this.btnStartStop.Size = new System.Drawing.Size(75, 23);
             this.btnStartStop.TabIndex = 2;
@@ -80,20 +82,11 @@
             // totalClient
             // 
             this.totalClient.AutoSize = true;
-            this.totalClient.Location = new System.Drawing.Point(15, 166);
+            this.totalClient.Location = new System.Drawing.Point(15, 142);
             this.totalClient.Name = "totalClient";
             this.totalClient.Size = new System.Drawing.Size(115, 13);
             this.totalClient.TabIndex = 6;
             this.totalClient.Text = "Total Client Connected";
-            // 
-            // message
-            // 
-            this.message.AutoSize = true;
-            this.message.Location = new System.Drawing.Point(15, 140);
-            this.message.Name = "message";
-            this.message.Size = new System.Drawing.Size(105, 13);
-            this.message.TabIndex = 8;
-            this.message.Text = "Message From Client";
             // 
             // lstConnectedClients
             // 
@@ -134,22 +127,11 @@
             this.totalClientConnected.AutoSize = true;
             this.totalClientConnected.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.totalClientConnected.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.totalClientConnected.Location = new System.Drawing.Point(162, 164);
+            this.totalClientConnected.Location = new System.Drawing.Point(162, 142);
             this.totalClientConnected.Name = "totalClientConnected";
             this.totalClientConnected.Size = new System.Drawing.Size(15, 15);
             this.totalClientConnected.TabIndex = 14;
             this.totalClientConnected.Text = "0";
-            // 
-            // labelmessage
-            // 
-            this.labelmessage.AutoSize = true;
-            this.labelmessage.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelmessage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.labelmessage.Location = new System.Drawing.Point(162, 140);
-            this.labelmessage.Name = "labelmessage";
-            this.labelmessage.Size = new System.Drawing.Size(58, 15);
-            this.labelmessage.TabIndex = 15;
-            this.labelmessage.Text = "Messaage";
             // 
             // newClient
             // 
@@ -184,7 +166,7 @@
             this.listAllConnected.FormattingEnabled = true;
             this.listAllConnected.Location = new System.Drawing.Point(248, 14);
             this.listAllConnected.Name = "listAllConnected";
-            this.listAllConnected.Size = new System.Drawing.Size(137, 199);
+            this.listAllConnected.Size = new System.Drawing.Size(137, 303);
             this.listAllConnected.TabIndex = 19;
             // 
             // label3
@@ -198,7 +180,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(253, 227);
+            this.button1.Location = new System.Drawing.Point(248, 327);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(129, 23);
             this.button1.TabIndex = 21;
@@ -206,28 +188,64 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(400, 327);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(74, 23);
+            this.button2.TabIndex = 23;
+            this.button2.Text = "Send ";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(400, 234);
+            this.textBox1.MinimumSize = new System.Drawing.Size(100, 60);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(172, 60);
+            this.textBox1.TabIndex = 24;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(500, 327);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(72, 23);
+            this.button3.TabIndex = 25;
+            this.button3.Text = "Send To All";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // rTxtBoxMessageHistory
+            // 
+            this.rTxtBoxMessageHistory.Location = new System.Drawing.Point(400, 14);
+            this.rTxtBoxMessageHistory.Name = "rTxtBoxMessageHistory";
+            this.rTxtBoxMessageHistory.Size = new System.Drawing.Size(172, 202);
+            this.rTxtBoxMessageHistory.TabIndex = 26;
+            this.rTxtBoxMessageHistory.Text = "";
+            // 
             // SCADA_mainDlg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 262);
+            this.ClientSize = new System.Drawing.Size(584, 362);
+            this.Controls.Add(this.rTxtBoxMessageHistory);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.listAllConnected);
             this.Controls.Add(this.numericUpDownPort);
             this.Controls.Add(this.newClient);
-            this.Controls.Add(this.labelmessage);
             this.Controls.Add(this.totalClientConnected);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lstDisconnectIPs);
             this.Controls.Add(this.lstConnectedClients);
-            this.Controls.Add(this.message);
             this.Controls.Add(this.totalClient);
             this.Controls.Add(this.newClientConnected);
             this.Controls.Add(this.btnStartStop);
             this.Controls.Add(this.lblPort);
-            this.MaximumSize = new System.Drawing.Size(400, 300);
+            this.MaximumSize = new System.Drawing.Size(600, 400);
             this.MinimumSize = new System.Drawing.Size(300, 38);
             this.Name = "SCADA_mainDlg";
             this.Text = "SCADA Server";
@@ -243,19 +261,21 @@
         private System.Windows.Forms.Button btnStartStop;
         private System.Windows.Forms.Label newClientConnected;
         private System.Windows.Forms.Label totalClient;
-        private System.Windows.Forms.Label message;
         private System.Windows.Forms.ListBox lstConnectedClients;
         private System.Windows.Forms.ListBox lstDisconnectIPs;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label totalClientConnected;
-        private System.Windows.Forms.Label labelmessage;
         private System.Windows.Forms.Label newClient;
         private System.Windows.Forms.NumericUpDown numericUpDownPort;
         private System.Windows.Forms.Timer timerConnectedClients;
         private System.Windows.Forms.ListBox listAllConnected;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.RichTextBox rTxtBoxMessageHistory;
     }
 }
 

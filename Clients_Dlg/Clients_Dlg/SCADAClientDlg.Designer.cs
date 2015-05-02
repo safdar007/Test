@@ -32,8 +32,10 @@
             this.lblServerIP = new System.Windows.Forms.Label();
             this.lblServerPort = new System.Windows.Forms.Label();
             this.portAddress = new System.Windows.Forms.NumericUpDown();
-            this.clientMessage = new System.Windows.Forms.TextBox();
             this.txtServerIP = new System.Windows.Forms.TextBox();
+            this.listMsgHistory = new System.Windows.Forms.ListBox();
+            this.textMsgSend = new System.Windows.Forms.TextBox();
+            this.sendButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.portAddress)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,15 +81,6 @@
             0,
             0});
             // 
-            // clientMessage
-            // 
-            this.clientMessage.Location = new System.Drawing.Point(75, 120);
-            this.clientMessage.Name = "clientMessage";
-            this.clientMessage.Size = new System.Drawing.Size(100, 20);
-            this.clientMessage.TabIndex = 5;
-            this.clientMessage.Text = "Write Text Meg<END>";
-            this.clientMessage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // txtServerIP
             // 
             this.txtServerIP.Location = new System.Drawing.Point(75, 53);
@@ -95,20 +88,49 @@
             this.txtServerIP.Size = new System.Drawing.Size(100, 20);
             this.txtServerIP.TabIndex = 3;
             this.txtServerIP.Text = "127.0.0.1";
-            this.txtServerIP.TextChanged += new System.EventHandler(this.txtServerIP_TextChanged);
+            
+            // 
+            // listMsgHistory
+            // 
+            this.listMsgHistory.FormattingEnabled = true;
+            this.listMsgHistory.Location = new System.Drawing.Point(225, 7);
+            this.listMsgHistory.Name = "listMsgHistory";
+            this.listMsgHistory.Size = new System.Drawing.Size(231, 147);
+            this.listMsgHistory.TabIndex = 23;
+            // 
+            // textMsgSend
+            // 
+            this.textMsgSend.Location = new System.Drawing.Point(225, 162);
+            this.textMsgSend.MinimumSize = new System.Drawing.Size(100, 60);
+            this.textMsgSend.Name = "textMsgSend";
+            this.textMsgSend.Size = new System.Drawing.Size(231, 60);
+            this.textMsgSend.TabIndex = 27;
+            this.textMsgSend.Text = "Write text message";
+            // 
+            // sendButton
+            // 
+            this.sendButton.Location = new System.Drawing.Point(296, 231);
+            this.sendButton.Name = "sendButton";
+            this.sendButton.Size = new System.Drawing.Size(74, 23);
+            this.sendButton.TabIndex = 26;
+            this.sendButton.Text = "Send ";
+            this.sendButton.UseVisualStyleBackColor = true;
+            this.sendButton.Click += new System.EventHandler(this.sendButton_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
-            this.Controls.Add(this.clientMessage);
+            this.ClientSize = new System.Drawing.Size(462, 262);
+            this.Controls.Add(this.textMsgSend);
+            this.Controls.Add(this.sendButton);
+            this.Controls.Add(this.listMsgHistory);
             this.Controls.Add(this.portAddress);
             this.Controls.Add(this.txtServerIP);
             this.Controls.Add(this.lblServerPort);
             this.Controls.Add(this.lblServerIP);
             this.Controls.Add(this.btnConnectDisconnect);
-            this.MaximumSize = new System.Drawing.Size(300, 300);
+            this.MaximumSize = new System.Drawing.Size(500, 300);
             this.MinimumSize = new System.Drawing.Size(300, 300);
             this.Name = "frmMain";
             this.Text = "SCADA Client";
@@ -124,8 +146,10 @@
         private System.Windows.Forms.Label lblServerIP;
         private System.Windows.Forms.Label lblServerPort;
         private System.Windows.Forms.NumericUpDown portAddress;
-        private System.Windows.Forms.TextBox clientMessage;
         private System.Windows.Forms.TextBox txtServerIP;
+        private System.Windows.Forms.ListBox listMsgHistory;
+        private System.Windows.Forms.TextBox textMsgSend;
+        private System.Windows.Forms.Button sendButton;
     }
 }
 

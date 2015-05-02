@@ -19,7 +19,7 @@ namespace Clients_Dlg
             static int port = 11;
             static string iPAdress = "192.168.0.104";
             static string message = "...";
-
+            static Socket client = null; 
             enum CLIENT_STATES { Disconnect = 0, Connect = 1};
             static CLIENT_STATES scadaServerSatate;
             static int scadaPort = 0;
@@ -30,8 +30,6 @@ namespace Clients_Dlg
 
             public static void ConnectingThread()
             {
-                Socket client = null; 
-
                 while(scadaServerSatate == CLIENT_STATES.Connect)
                 {
                     if (client == null)
@@ -107,7 +105,7 @@ namespace Clients_Dlg
                     btnConnectDisconnect.Text = "Disconnect";
                     btnConnectDisconnect.BackColor = System.Drawing.Color.Green;
                     port = (int)portAddress.Value;
-                    message = clientMessage.Text;
+                    message = textMsgSend.Text;
                     Thread clientThread = new Thread(new ThreadStart(ConnectingThread));
                     clientThread.Start();
                     //Thread.Sleep(1000);
@@ -115,7 +113,7 @@ namespace Clients_Dlg
                 }
                 else if (scadaServerSatate == CLIENT_STATES.Connect)
                 {
-                    scadaPort = (int)portAddress.Value;//???
+                    scadaPort = (int)portAddress.Value;
                     btnConnectDisconnect.Text = "Connect";
                     btnConnectDisconnect.BackColor = System.Drawing.Color.Red;
                     scadaServerSatate = CLIENT_STATES.Disconnect;
@@ -123,9 +121,11 @@ namespace Clients_Dlg
 
             }
 
-            private void txtServerIP_TextChanged(object sender, System.EventArgs e)
+            private void sendButton_Click(object sender, EventArgs e)
             {
-
+                
+                byte[] nextMsgSend = Encoding.ASCII.GetBytes(textMsgSend.Text);
+                client.Send(nextMsgSend);
             }
        }
 
