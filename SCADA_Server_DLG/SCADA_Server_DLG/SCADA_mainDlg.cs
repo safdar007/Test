@@ -26,7 +26,7 @@ namespace SCADA_Server_DLG
         static byte[] msg;
         
         static long socketCount = 0;
-        static int oldMsg = 0;
+        int currentCount = 0;
         static int y = 0;
         static int newMsgReceived = 0;
         string historyMsg = " ";
@@ -38,7 +38,6 @@ namespace SCADA_Server_DLG
         static SERVER_STATES scadaServerSatate;
         static int scadaPort = 0;
         static bool flstru = false;
-        static byte[] buffer;
         public static string oldClientSendData = null;
         
         static bool SocketConnected(Socket client)
@@ -77,82 +76,6 @@ namespace SCADA_Server_DLG
             return client.Connected;
         }
 
-        public static void ReadThread()
-        {
-            while (scadaServerSatate == SERVER_STATES.RUNNING)
-            {
-                buffer = new Byte[1024];
-                long currentSocketCount = socketlist.Count;
-                //socketlist.Add(port);
-                //check the new connection request
-                if (currentSocketCount > socketCount)
-                {
-                    long newSockets = currentSocketCount - socketCount;
-
-                        for (int l = (int)socketCount; l < currentSocketCount; l++)
-                        {
-                            y++;
-                            socketCnct = socketlist[l];
-                            Socket handleSocket = (Socket)socketlist[l];
-                            clientMsgIP = handleSocket;
-                            while (true)
-                            {
-                                buffer = new byte[1024];
-                                int getdata = handleSocket.Receive(buffer);
-                                if (getdata > 0)
-                                
-                                data += Encoding.ASCII.GetString(buffer, 0, getdata);
-                                if (data.IndexOf("<END>") > -1)
-                                {
-                                    break;
-                                }
-
-                            }//while
-                            // Show the data on the console.
-                            Console.WriteLine("Text received : {0},{1}", data, handleSocket.LocalEndPoint.ToString());
-
-                            // Echo the data back to the client.
-                            msg = Encoding.ASCII.GetBytes("This data is sent by SACADA's Server" + " + IP & Port =" + handleSocket.LocalEndPoint.ToString());
-                             
-                            handleSocket.Send(msg);
-                            //handleSocket.Shutdown(SocketShutdown.Both);
-                            //handleSocket.Close();
-
-                        }//for (int l = 0; l < newSockets; l++)
-                    
-                    socketCount = currentSocketCount;
-
-                }// if (currentSocketCount > socketCount)
-                
-                //if client disconect Remove that socket
-                int foreachvarriable = 0;
-                if (socketlist.Count > 0)
-                {
-                    for (int lp = 0; lp < socketlist.Count; lp++) // Loop through List with foreach.
-                    {
-
-                        flstru = SocketConnected(socketlist[lp]);
-                        if (flstru == false)
-                        {
-                            if (mut.WaitOne(1000))
-                            {
-                                discntlist1.Add(socketlist[lp]);
-                                socketlist.RemoveAt(lp);
-                            }// Release the Mutex.
-                            mut.ReleaseMutex();
-
-                        }//if (flstru == false)
-
-                        foreachvarriable++;
-                    
-                    }//for (int lp = 0; lp < socketlist.Count; lp++) // Loop through List with foreach.
-                }//if (socketlist.Count > 0)
-
-                Thread.Sleep(1000);
-            }//while true
-
-        }//public static void ReadThread() 
-
         public static void ListenThread()
         {
             IPHostEntry hostip = Dns.Resolve(Dns.GetHostName());
@@ -169,6 +92,8 @@ namespace SCADA_Server_DLG
                 {
                     Console.WriteLine("Waiting for a connecting with Clint...");
                     Socket handleSocket = port.Accept();
+
+
 
                     socketlist.Add(handleSocket);
                 }
@@ -198,10 +123,6 @@ namespace SCADA_Server_DLG
                 Thread serverThread = new Thread(new ThreadStart(ListenThread));
                 //listen();
                 serverThread.Start();
-                
-                Thread readThread = new Thread(new ThreadStart(ReadThread));
-                readThread.Start();
-                
             }
             else if (scadaServerSatate == SERVER_STATES.RUNNING)
             {
@@ -212,60 +133,16 @@ namespace SCADA_Server_DLG
             }            
         }
 
-        /*private void btnShow_Click(object sender, System.EventArgs e)
+         private void timerConnectedClients_Tick(object sender, EventArgs e)
         {
-
-            lstConnectedClients.Items.Clear();
-            lstDisconnectIPs.Items.Clear();
-            if (msg != null)
-            {
-                rTxtBoxMessageHistory.Text = data.ToString();
-            } 
             newClient.Text = y.ToString();
-            totalClientConnected.Text = socketlist.Count.ToString();
-           // lstDisconnectIPs.Items.AddRange(discntlist1.ToArray());
-            for (int index = 0; index < discntlist1.Count; index++)
-            {
-                Socket client = discntlist1[index];
-                lstDisconnectIPs.Items.Add(client.RemoteEndPoint);
-            }
-            for (int index = 0; index < socketlist.Count; index++)
-            {
-                Socket client = socketlist[index];
-                lstConnectedClients.Items.Add(client.RemoteEndPoint);
-            }
-        }*/
-
-        private void timerConnectedClients_Tick(object sender, EventArgs e)
-        {
-            lstDisconnectIPs.Items.Clear();
-            newClient.Text = y.ToString();
-            totalClientConnected.Text = socketlist.Count.ToString();
-
-            if (data != null)
-            {
-           //     rTxtBoxMessageHistory.Text = data + clientMsgIP.RemoteEndPoint;
-             //   data = null;
-            }
-
-            for (int index = 0; index < discntlist1.Count; index++)
-            {
-                Socket client = discntlist1[index];
-                lstDisconnectIPs.Items.Add(client.RemoteEndPoint);    
-            }
-
-            for (int index = 0; index < socketlist.Count; index++)
-            {
-                lstConnectedClients.Items.Clear();
-                Socket client = socketlist[index];
-                lstConnectedClients.Items.Add(client.RemoteEndPoint);
-            }
             
             //check and add new client connection in all connected list
             for (int index = 0; index < socketlist.Count; index++)
             {
                 string receiveMsg = "";
                 Socket client = socketlist[index];
+                byte[] buffer = new byte[1024];
                 string s = client.RemoteEndPoint.ToString();
                 while(client.Available > 0 )
                 {
@@ -273,57 +150,60 @@ namespace SCADA_Server_DLG
                     if (getdata > 0)
                     {   receiveMsg += Encoding.ASCII.GetString(buffer, 0, getdata);  }
                 }//while(client.Available > 0 )
-                if (receiveMsg.Length > 0)
-                {
-
-                    rTxtBoxMessageHistory.Text += receiveMsg + client.RemoteEndPoint; 
-                }
-
-                bool found = false;
-                for (int itemIndex = 0; itemIndex < listAllConnected.Items.Count; itemIndex++ )
-                {
-                    string currentClient = listAllConnected.Items[itemIndex].ToString();
-                    if (s == currentClient)
-                    {
-                        
-                        found = true;
-                        if (listAllConnected.SelectedItem != null)
-                        
-                        break;
-                    }
-                }//for (int itemIndex = 0; itemIndex < listAllConnected.Items.Count; itemIndex++ )
-
-                if (found == false)
-                { listAllConnected.Items.Add(client.RemoteEndPoint); }
-
-
-            }//for (int index = 0; index < socketlist.Count; index++)
-
-            //check and remove disconnected clients from all connected lists
-            for (int itemIndex = 0; itemIndex < listAllConnected.Items.Count; itemIndex++)
-            {
-                string currentClient = listAllConnected.Items[itemIndex].ToString();
-                bool found = false;
                 
-                for (int index = 0; index < socketlist.Count; index++)
-                {
-                    Socket client = socketlist[index];
-                    string s = client.RemoteEndPoint.ToString();
-                    if (s == currentClient)
-                    {
-                        found = true;
-                        break;
-                    }
-                }//for (int itemIndex = 0; itemIndex < listAllConnected.Items.Count; itemIndex++ )
+                if (receiveMsg.Length > 0)
+                {   rTxtBoxMessageHistory.Text += client.RemoteEndPoint+ " : " + receiveMsg + "\n";     }
 
-                if (found == false)
-                { listAllConnected.Items.RemoveAt(itemIndex); }
             }//for (int index = 0; index < socketlist.Count; index++)
-        }
+            
+            //Check Socket status and update it
+            for (int socketIndex = 0; socketIndex < socketlist.Count; socketIndex++)
+            {
+                Socket tempSocket = socketlist[socketIndex];
+                bool connected = SocketConnected(tempSocket);
+                if (connected == false)
+                {
+                    lstDisconnectIPs.Items.Add(tempSocket.RemoteEndPoint);
+                    socketlist.RemoveAt(socketIndex); 
+                }
+            }//for (int socketIndex = 0; socketIndex < socketlist.Count; socketIndex++)
+             totalClientConnected.Text = socketlist.Count.ToString();
 
-        private void button1_Click(object sender, EventArgs e)
+             //Currently connected clients list
+             if (lstConnectedClients.Items.Count < 1)
+             {
+                 for (int firstAdd = 0; firstAdd < socketlist.Count; firstAdd++)
+                 { lstConnectedClients.Items.Add(socketlist[firstAdd].RemoteEndPoint); }
+             }//if (lstConnectedClients.Items.Count < 1)
+             else
+             {
+                 for (int indexOfSocket = 0; indexOfSocket < socketlist.Count; indexOfSocket++)
+                 {
+                     Socket tempSocket = socketlist[indexOfSocket];
+                     string stringEndPoint = tempSocket.RemoteEndPoint.ToString();
+                     bool found = false;
+                     for (int indexOfGui = 0; indexOfGui < lstConnectedClients.Items.Count; indexOfGui++)
+                     {
+                        string stringOfGui = lstConnectedClients.Items[indexOfGui].ToString();
+                        if (stringEndPoint == stringOfGui)
+                        {
+                            found = true;                            
+                            break;
+                        }
+                     }//for (int indexOfGui = 0; indexOfGui < socketlist.Count; indexOfGui++)
+                     if (found == false)
+                     {
+                         lstConnectedClients.Items.Add(socketlist[indexOfSocket].RemoteEndPoint);
+                     
+                     }
+
+                 }//for (int indexOfSocket = 0; indexOfSocket < socketlist.Count; indexOfSocket++)
+             }//else of if (lstConnectedClients.Items.Count < 1)
+
+          }//private void timerConnectedClients_Tick(object sender, EventArgs e)
+
+        private void btnDisconnectIP_Click(object sender, EventArgs e)
         {
-
             if (listAllConnected.SelectedItem != null)
             {
                 for (int itemIndex = 0; itemIndex < listAllConnected.Items.Count; itemIndex++)
@@ -339,10 +219,15 @@ namespace SCADA_Server_DLG
                             listAllConnected.Items.RemoveAt(itemIndex);
                             socketlist.RemoveAt(itemIndex);            
                         }
-                    
+
                 }//for (int itemIndex = 0; itemIndex < listAllConnected.Items.Count; itemIndex++)
             }//if (listAllConnected.SelectedItem != null)
-        }//private void timerConnectedClients_Tick(object sender, EventArgs e)
+        }
+
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+
+        }
 
      }
 }

@@ -43,8 +43,8 @@
             this.timerConnectedClients = new System.Windows.Forms.Timer(this.components);
             this.listAllConnected = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnDisconnectIP = new System.Windows.Forms.Button();
+            this.btnSend = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.rTxtBoxMessageHistory = new System.Windows.Forms.RichTextBox();
@@ -178,31 +178,32 @@
             this.label3.TabIndex = 20;
             this.label3.Text = "All Connected Clients";
             // 
-            // button1
+            // btnDisconnectIP
             // 
-            this.button1.Location = new System.Drawing.Point(248, 327);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(129, 23);
-            this.button1.TabIndex = 21;
-            this.button1.Text = "Disconnent Selected IP";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnDisconnectIP.Location = new System.Drawing.Point(248, 327);
+            this.btnDisconnectIP.Name = "btnDisconnectIP";
+            this.btnDisconnectIP.Size = new System.Drawing.Size(129, 23);
+            this.btnDisconnectIP.TabIndex = 21;
+            this.btnDisconnectIP.Text = "Disconnent Selected IP";
+            this.btnDisconnectIP.UseVisualStyleBackColor = true;
+            this.btnDisconnectIP.Click += new System.EventHandler(this.btnDisconnectIP_Click);
             // 
-            // button2
+            // btnSend
             // 
-            this.button2.Location = new System.Drawing.Point(400, 327);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(74, 23);
-            this.button2.TabIndex = 23;
-            this.button2.Text = "Send ";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnSend.Location = new System.Drawing.Point(400, 327);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(74, 23);
+            this.btnSend.TabIndex = 23;
+            this.btnSend.Text = "Send ";
+            this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(400, 234);
             this.textBox1.MinimumSize = new System.Drawing.Size(100, 60);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(172, 60);
+            this.textBox1.Size = new System.Drawing.Size(172, 20);
             this.textBox1.TabIndex = 24;
             // 
             // button3
@@ -230,8 +231,8 @@
             this.Controls.Add(this.rTxtBoxMessageHistory);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSend);
+            this.Controls.Add(this.btnDisconnectIP);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.listAllConnected);
             this.Controls.Add(this.numericUpDownPort);
@@ -271,8 +272,8 @@
         private System.Windows.Forms.Timer timerConnectedClients;
         private System.Windows.Forms.ListBox listAllConnected;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnDisconnectIP;
+        private System.Windows.Forms.Button btnSend;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.RichTextBox rTxtBoxMessageHistory;
