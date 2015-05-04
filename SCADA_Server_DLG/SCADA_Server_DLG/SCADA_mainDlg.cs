@@ -173,7 +173,10 @@ namespace SCADA_Server_DLG
              if (lstConnectedClients.Items.Count < 1)
              {
                  for (int firstAdd = 0; firstAdd < socketlist.Count; firstAdd++)
-                 { lstConnectedClients.Items.Add(socketlist[firstAdd].RemoteEndPoint); }
+                 {
+                     lstConnectedClients.Items.Add(socketlist[firstAdd].RemoteEndPoint);
+                     listAllConnected.Items.Add(socketlist[firstAdd].RemoteEndPoint); 
+                 }
              }//if (lstConnectedClients.Items.Count < 1)
              else
              {
@@ -192,31 +195,66 @@ namespace SCADA_Server_DLG
                         }
                      }//for (int indexOfGui = 0; indexOfGui < socketlist.Count; indexOfGui++)
                      if (found == false)
-                     {
-                         lstConnectedClients.Items.Add(socketlist[indexOfSocket].RemoteEndPoint);
-                     
-                     }
+                     { lstConnectedClients.Items.Add(socketlist[indexOfSocket].RemoteEndPoint); }
 
+                     //Create History of All connected IPs
+                     bool newClientFound = false;
+                     for (int indexOfAllConnected = 0; indexOfAllConnected < listAllConnected.Items.Count; indexOfAllConnected++)
+                     {
+                         string stringOfAllConnected = listAllConnected.Items[indexOfAllConnected].ToString();
+                         if (stringEndPoint == stringOfAllConnected)
+                        {
+                            newClientFound = true;                            
+                            break;
+                        }
+                     }//for (int indexOfGui = 0; indexOfGui < socketlist.Count; indexOfGui++)
+                     if (newClientFound == false)
+                     { listAllConnected.Items.Add(socketlist[indexOfSocket].RemoteEndPoint); }
+                     
                  }//for (int indexOfSocket = 0; indexOfSocket < socketlist.Count; indexOfSocket++)
+
+                 //Remove list Item if IP is not exist in Socket list
+                 for (int indexGui = 0; indexGui < lstConnectedClients.Items.Count; indexGui++)
+                 {
+                     string guistring = lstConnectedClients.Items[indexGui].ToString();
+                     bool found = false;
+                     for (int listIndex = 0; listIndex < socketlist.Count; listIndex++)
+                     {
+                         string endPointString = socketlist[listIndex].RemoteEndPoint.ToString();
+                         if (endPointString == guistring)
+                         {
+                             found = true;
+                             break;
+                         }
+                     }//for (int listIndex = 0; listIndex < socketlist.Count; listIndex++)
+                     if (found == false)
+                     { lstConnectedClients.Items.RemoveAt(indexGui); }
+                 
+                 }
+
+
              }//else of if (lstConnectedClients.Items.Count < 1)
+
+
 
           }//private void timerConnectedClients_Tick(object sender, EventArgs e)
 
         private void btnDisconnectIP_Click(object sender, EventArgs e)
         {
-            if (listAllConnected.SelectedItem != null)
+            if (lstConnectedClients.SelectedItem != null)
             {
-                for (int itemIndex = 0; itemIndex < listAllConnected.Items.Count; itemIndex++)
+                for (int itemIndex = 0; itemIndex < lstConnectedClients.Items.Count; itemIndex++)
                 {
                     Socket client = socketlist[itemIndex];
                     string s = client.RemoteEndPoint.ToString();
-                    string currentClient = listAllConnected.Items[itemIndex].ToString();
-                    string itemDisconnect = listAllConnected.SelectedItem.ToString();
+                    string currentClient = lstConnectedClients.Items[itemIndex].ToString();
+                    string itemDisconnect = lstConnectedClients.SelectedItem.ToString();
                         if (itemDisconnect == s)
                         {
+                            lstDisconnectIPs.Items.Add(s);
+                            lstConnectedClients.Items.RemoveAt(itemIndex);
                             client.LingerState = new LingerOption(true, 0);
                             client.Close();
-                            listAllConnected.Items.RemoveAt(itemIndex);
                             socketlist.RemoveAt(itemIndex);            
                         }
 

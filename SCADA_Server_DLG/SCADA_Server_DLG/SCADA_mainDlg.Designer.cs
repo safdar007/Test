@@ -54,7 +54,7 @@
             // lblPort
             // 
             this.lblPort.AutoSize = true;
-            this.lblPort.Location = new System.Drawing.Point(15, 79);
+            this.lblPort.Location = new System.Drawing.Point(15, 224);
             this.lblPort.Name = "lblPort";
             this.lblPort.Size = new System.Drawing.Size(99, 13);
             this.lblPort.TabIndex = 1;
@@ -62,7 +62,7 @@
             // 
             // btnStartStop
             // 
-            this.btnStartStop.Location = new System.Drawing.Point(18, 327);
+            this.btnStartStop.Location = new System.Drawing.Point(33, 327);
             this.btnStartStop.Name = "btnStartStop";
             this.btnStartStop.Size = new System.Drawing.Size(75, 23);
             this.btnStartStop.TabIndex = 2;
@@ -73,7 +73,7 @@
             // newClientConnected
             // 
             this.newClientConnected.AutoSize = true;
-            this.newClientConnected.Location = new System.Drawing.Point(15, 113);
+            this.newClientConnected.Location = new System.Drawing.Point(15, 253);
             this.newClientConnected.Name = "newClientConnected";
             this.newClientConnected.Size = new System.Drawing.Size(130, 13);
             this.newClientConnected.TabIndex = 5;
@@ -82,7 +82,7 @@
             // totalClient
             // 
             this.totalClient.AutoSize = true;
-            this.totalClient.Location = new System.Drawing.Point(15, 142);
+            this.totalClient.Location = new System.Drawing.Point(15, 287);
             this.totalClient.Name = "totalClient";
             this.totalClient.Size = new System.Drawing.Size(115, 13);
             this.totalClient.TabIndex = 6;
@@ -91,17 +91,17 @@
             // lstConnectedClients
             // 
             this.lstConnectedClients.FormattingEnabled = true;
-            this.lstConnectedClients.Location = new System.Drawing.Point(4, 12);
+            this.lstConnectedClients.Location = new System.Drawing.Point(-1, 12);
             this.lstConnectedClients.Name = "lstConnectedClients";
-            this.lstConnectedClients.Size = new System.Drawing.Size(137, 56);
+            this.lstConnectedClients.Size = new System.Drawing.Size(137, 147);
             this.lstConnectedClients.TabIndex = 10;
             // 
             // lstDisconnectIPs
             // 
             this.lstDisconnectIPs.FormattingEnabled = true;
-            this.lstDisconnectIPs.Location = new System.Drawing.Point(136, 12);
+            this.lstDisconnectIPs.Location = new System.Drawing.Point(138, 12);
             this.lstDisconnectIPs.Name = "lstDisconnectIPs";
-            this.lstDisconnectIPs.Size = new System.Drawing.Size(109, 56);
+            this.lstDisconnectIPs.Size = new System.Drawing.Size(109, 147);
             this.lstDisconnectIPs.TabIndex = 11;
             // 
             // label1
@@ -116,7 +116,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(142, -1);
+            this.label2.Location = new System.Drawing.Point(139, -1);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(107, 13);
             this.label2.TabIndex = 13;
@@ -127,7 +127,7 @@
             this.totalClientConnected.AutoSize = true;
             this.totalClientConnected.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.totalClientConnected.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.totalClientConnected.Location = new System.Drawing.Point(162, 142);
+            this.totalClientConnected.Location = new System.Drawing.Point(173, 283);
             this.totalClientConnected.Name = "totalClientConnected";
             this.totalClientConnected.Size = new System.Drawing.Size(15, 15);
             this.totalClientConnected.TabIndex = 14;
@@ -138,7 +138,7 @@
             this.newClient.AutoSize = true;
             this.newClient.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.newClient.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.newClient.Location = new System.Drawing.Point(162, 113);
+            this.newClient.Location = new System.Drawing.Point(173, 254);
             this.newClient.Name = "newClient";
             this.newClient.Size = new System.Drawing.Size(15, 15);
             this.newClient.TabIndex = 16;
@@ -146,7 +146,7 @@
             // 
             // numericUpDownPort
             // 
-            this.numericUpDownPort.Location = new System.Drawing.Point(162, 77);
+            this.numericUpDownPort.Location = new System.Drawing.Point(173, 218);
             this.numericUpDownPort.Name = "numericUpDownPort";
             this.numericUpDownPort.Size = new System.Drawing.Size(49, 20);
             this.numericUpDownPort.TabIndex = 18;
@@ -166,13 +166,13 @@
             this.listAllConnected.FormattingEnabled = true;
             this.listAllConnected.Location = new System.Drawing.Point(248, 14);
             this.listAllConnected.Name = "listAllConnected";
-            this.listAllConnected.Size = new System.Drawing.Size(137, 303);
+            this.listAllConnected.Size = new System.Drawing.Size(137, 342);
             this.listAllConnected.TabIndex = 19;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(266, -1);
+            this.label3.Location = new System.Drawing.Point(260, -1);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(107, 13);
             this.label3.TabIndex = 20;
@@ -180,7 +180,7 @@
             // 
             // btnDisconnectIP
             // 
-            this.btnDisconnectIP.Location = new System.Drawing.Point(248, 327);
+            this.btnDisconnectIP.Location = new System.Drawing.Point(7, 178);
             this.btnDisconnectIP.Name = "btnDisconnectIP";
             this.btnDisconnectIP.Size = new System.Drawing.Size(129, 23);
             this.btnDisconnectIP.TabIndex = 21;
