@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnConnectDisconnect = new System.Windows.Forms.Button();
             this.lblServerIP = new System.Windows.Forms.Label();
             this.lblServerPort = new System.Windows.Forms.Label();
@@ -36,6 +37,7 @@
             this.listMsgHistory = new System.Windows.Forms.ListBox();
             this.textMsgSend = new System.Windows.Forms.TextBox();
             this.sendButton = new System.Windows.Forms.Button();
+            this.timerSCADAClient = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.portAddress)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,7 +90,6 @@
             this.txtServerIP.Size = new System.Drawing.Size(100, 20);
             this.txtServerIP.TabIndex = 3;
             this.txtServerIP.Text = "127.0.0.1";
-            
             // 
             // listMsgHistory
             // 
@@ -103,7 +104,7 @@
             this.textMsgSend.Location = new System.Drawing.Point(225, 162);
             this.textMsgSend.MinimumSize = new System.Drawing.Size(100, 60);
             this.textMsgSend.Name = "textMsgSend";
-            this.textMsgSend.Size = new System.Drawing.Size(231, 60);
+            this.textMsgSend.Size = new System.Drawing.Size(231, 20);
             this.textMsgSend.TabIndex = 27;
             this.textMsgSend.Text = "Write text message";
             // 
@@ -116,6 +117,12 @@
             this.sendButton.Text = "Send ";
             this.sendButton.UseVisualStyleBackColor = true;
             this.sendButton.Click += new System.EventHandler(this.sendButton_Click);
+            // 
+            // timerSCADAClient
+            // 
+            this.timerSCADAClient.Enabled = true;
+            this.timerSCADAClient.Interval = 1000;
+            this.timerSCADAClient.Tick += new System.EventHandler(this.timerSCADAClient_Tick);
             // 
             // frmMain
             // 
@@ -150,6 +157,7 @@
         private System.Windows.Forms.ListBox listMsgHistory;
         private System.Windows.Forms.TextBox textMsgSend;
         private System.Windows.Forms.Button sendButton;
+        private System.Windows.Forms.Timer timerSCADAClient;
     }
 }
 

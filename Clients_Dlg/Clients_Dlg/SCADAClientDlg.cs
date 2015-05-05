@@ -81,14 +81,9 @@ namespace Clients_Dlg
                 {
                     // Release the socket.
                     client.LingerState = new LingerOption(true, 0);
-                    //client.Disconnect(false);
-                    //client.Shutdown(SocketShutdown.Both);
                     client.Close();
                     client = null;
-
                 }//if (client != null)
-
-                
             }//public static void ConnectingThread()
 
             public frmMain()
@@ -115,7 +110,6 @@ namespace Clients_Dlg
                 }
                 else if (scadaServerSatate == CLIENT_STATES.Connect)
                 {
-                    scadaPort = (int)portAddress.Value;
                     btnConnectDisconnect.Text = "Connect";
                     btnConnectDisconnect.BackColor = System.Drawing.Color.Red;
                     scadaServerSatate = CLIENT_STATES.Disconnect;
@@ -125,11 +119,55 @@ namespace Clients_Dlg
 
             private void sendButton_Click(object sender, EventArgs e)
             {
-                
                 byte[] nextMsgSend = Encoding.ASCII.GetBytes(textMsgSend.Text);
                 client.Send(nextMsgSend);
             }
-       }
 
-    
-}
+            private void timerSCADAClient_Tick(object sender, EventArgs e)
+            {
+                if (client != null && !SocketConnected(client))
+                {
+                    btnConnectDisconnect.Text = "Connect";
+                    btnConnectDisconnect.BackColor = System.Drawing.Color.Red;
+                    scadaServerSatate = CLIENT_STATES.Disconnect;
+                }//if (!SocketConnected(client))
+            }//private void timerSCADAClient_Tick(object sender, EventArgs e)
+
+            static bool SocketConnected(Socket client)
+            {
+                // This is how you can determine whether a socket is still connected. 
+                bool blockingState = client.Blocking;
+                try
+                {
+                    byte[] tmp = new byte[1];
+
+                    client.Blocking = false;
+                    client.Send(tmp, 0, 0);
+                    //Console.WriteLine("Connected!");
+                    return true;
+                }
+                catch (SocketException e)
+                {
+                    // 10035 == WSAEWOULDBLOCK 
+                    if (e.NativeErrorCode.Equals(10035))
+                    {
+                        //    Console.WriteLine("Still Connected, but the Send would block");
+                        return true;
+                    }
+                    else
+                    {
+                        //      Console.WriteLine("Disconnected: error code {0}!", e.NativeErrorCode);
+                        return false;
+                    }
+                }
+                finally
+                {
+                    client.Blocking = blockingState;
+                }
+
+                //Console.WriteLine("Connected: {0}", client.Connected);
+                return client.Connected;
+            }//static bool SocketConnected(Socket client)
+
+        }//public partial class frmMain : Form
+    }//namespace Clients_Dlg

@@ -75,7 +75,7 @@ namespace SCADA_Server_DLG
           
             //Console.WriteLine("Connected: {0}", client.Connected);
             return client.Connected;
-        }
+        }//static bool SocketConnected(Socket client)
 
         public static void ListenThread()
         {
