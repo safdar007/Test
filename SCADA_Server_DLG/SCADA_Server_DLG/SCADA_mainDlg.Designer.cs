@@ -48,23 +48,27 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.rTxtBoxMessageHistory = new System.Windows.Forms.RichTextBox();
+            this.msgHistory = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPort)).BeginInit();
             this.SuspendLayout();
             // 
             // lblPort
             // 
             this.lblPort.AutoSize = true;
-            this.lblPort.Location = new System.Drawing.Point(15, 224);
+            this.lblPort.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblPort.Font = new System.Drawing.Font("Modern No. 20", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPort.Location = new System.Drawing.Point(15, 256);
             this.lblPort.Name = "lblPort";
-            this.lblPort.Size = new System.Drawing.Size(99, 13);
+            this.lblPort.Size = new System.Drawing.Size(226, 27);
             this.lblPort.TabIndex = 1;
             this.lblPort.Text = "SCADA Server Port";
             // 
             // btnStartStop
             // 
-            this.btnStartStop.Location = new System.Drawing.Point(33, 327);
+            this.btnStartStop.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStartStop.Location = new System.Drawing.Point(45, 519);
             this.btnStartStop.Name = "btnStartStop";
-            this.btnStartStop.Size = new System.Drawing.Size(75, 23);
+            this.btnStartStop.Size = new System.Drawing.Size(95, 31);
             this.btnStartStop.TabIndex = 2;
             this.btnStartStop.Text = "Start";
             this.btnStartStop.UseVisualStyleBackColor = true;
@@ -73,82 +77,99 @@
             // newClientConnected
             // 
             this.newClientConnected.AutoSize = true;
-            this.newClientConnected.Location = new System.Drawing.Point(15, 253);
+            this.newClientConnected.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.newClientConnected.Font = new System.Drawing.Font("Modern No. 20", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newClientConnected.Location = new System.Drawing.Point(15, 299);
             this.newClientConnected.Name = "newClientConnected";
-            this.newClientConnected.Size = new System.Drawing.Size(130, 13);
+            this.newClientConnected.Size = new System.Drawing.Size(287, 27);
             this.newClientConnected.TabIndex = 5;
             this.newClientConnected.Text = "New Connected Client No";
             // 
             // totalClient
             // 
             this.totalClient.AutoSize = true;
-            this.totalClient.Location = new System.Drawing.Point(15, 287);
+            this.totalClient.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.totalClient.Font = new System.Drawing.Font("Modern No. 20", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalClient.Location = new System.Drawing.Point(15, 341);
             this.totalClient.Name = "totalClient";
-            this.totalClient.Size = new System.Drawing.Size(115, 13);
+            this.totalClient.Size = new System.Drawing.Size(260, 27);
             this.totalClient.TabIndex = 6;
             this.totalClient.Text = "Total Client Connected";
             // 
             // lstConnectedClients
             // 
+            this.lstConnectedClients.Font = new System.Drawing.Font("Lucida Bright", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstConnectedClients.FormattingEnabled = true;
-            this.lstConnectedClients.Location = new System.Drawing.Point(-1, 12);
+            this.lstConnectedClients.ItemHeight = 15;
+            this.lstConnectedClients.Location = new System.Drawing.Point(0, 39);
             this.lstConnectedClients.Name = "lstConnectedClients";
-            this.lstConnectedClients.Size = new System.Drawing.Size(137, 147);
+            this.lstConnectedClients.Size = new System.Drawing.Size(256, 124);
             this.lstConnectedClients.TabIndex = 10;
             // 
             // lstDisconnectIPs
             // 
+            this.lstDisconnectIPs.Font = new System.Drawing.Font("Lucida Bright", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstDisconnectIPs.FormattingEnabled = true;
-            this.lstDisconnectIPs.Location = new System.Drawing.Point(138, 12);
+            this.lstDisconnectIPs.ItemHeight = 15;
+            this.lstDisconnectIPs.Location = new System.Drawing.Point(266, 38);
             this.lstDisconnectIPs.Name = "lstDisconnectIPs";
-            this.lstDisconnectIPs.Size = new System.Drawing.Size(109, 147);
+            this.lstDisconnectIPs.Size = new System.Drawing.Size(256, 124);
             this.lstDisconnectIPs.TabIndex = 11;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, -1);
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label1.Font = new System.Drawing.Font("Modern No. 20", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 13);
+            this.label1.Size = new System.Drawing.Size(204, 27);
             this.label1.TabIndex = 12;
             this.label1.Text = "Connected Clients";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(139, -1);
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label2.Font = new System.Drawing.Font("Modern No. 20", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(266, 4);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 13);
+            this.label2.Size = new System.Drawing.Size(237, 27);
             this.label2.TabIndex = 13;
             this.label2.Text = "Disconnected Clients";
             // 
             // totalClientConnected
             // 
-            this.totalClientConnected.AutoSize = true;
             this.totalClientConnected.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.totalClientConnected.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.totalClientConnected.Location = new System.Drawing.Point(173, 283);
+            this.totalClientConnected.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalClientConnected.Location = new System.Drawing.Point(373, 340);
+            this.totalClientConnected.Margin = new System.Windows.Forms.Padding(3);
             this.totalClientConnected.Name = "totalClientConnected";
-            this.totalClientConnected.Size = new System.Drawing.Size(15, 15);
+            this.totalClientConnected.Size = new System.Drawing.Size(49, 28);
             this.totalClientConnected.TabIndex = 14;
             this.totalClientConnected.Text = "0";
             // 
             // newClient
             // 
-            this.newClient.AutoSize = true;
             this.newClient.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.newClient.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.newClient.Location = new System.Drawing.Point(173, 254);
+            this.newClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newClient.Location = new System.Drawing.Point(373, 298);
+            this.newClient.Margin = new System.Windows.Forms.Padding(3);
             this.newClient.Name = "newClient";
-            this.newClient.Size = new System.Drawing.Size(15, 15);
+            this.newClient.Size = new System.Drawing.Size(49, 28);
             this.newClient.TabIndex = 16;
             this.newClient.Text = "0";
             // 
             // numericUpDownPort
             // 
-            this.numericUpDownPort.Location = new System.Drawing.Point(173, 218);
+            this.numericUpDownPort.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDownPort.Location = new System.Drawing.Point(373, 256);
+            this.numericUpDownPort.MaximumSize = new System.Drawing.Size(50, 0);
+            this.numericUpDownPort.MinimumSize = new System.Drawing.Size(10, 0);
             this.numericUpDownPort.Name = "numericUpDownPort";
-            this.numericUpDownPort.Size = new System.Drawing.Size(49, 20);
+            this.numericUpDownPort.Size = new System.Drawing.Size(49, 24);
             this.numericUpDownPort.TabIndex = 18;
             this.numericUpDownPort.Value = new decimal(new int[] {
             11,
@@ -163,26 +184,31 @@
             // 
             // listAllConnected
             // 
+            this.listAllConnected.Font = new System.Drawing.Font("Lucida Bright", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listAllConnected.FormattingEnabled = true;
-            this.listAllConnected.Location = new System.Drawing.Point(248, 14);
+            this.listAllConnected.ItemHeight = 15;
+            this.listAllConnected.Location = new System.Drawing.Point(532, 37);
             this.listAllConnected.Name = "listAllConnected";
-            this.listAllConnected.Size = new System.Drawing.Size(137, 342);
+            this.listAllConnected.Size = new System.Drawing.Size(256, 334);
             this.listAllConnected.TabIndex = 19;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(260, -1);
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label3.Font = new System.Drawing.Font("Modern No. 20", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(535, 6);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(107, 13);
+            this.label3.Size = new System.Drawing.Size(248, 27);
             this.label3.TabIndex = 20;
             this.label3.Text = "All Connected Clients";
             // 
             // btnDisconnectIP
             // 
-            this.btnDisconnectIP.Location = new System.Drawing.Point(7, 178);
+            this.btnDisconnectIP.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDisconnectIP.Location = new System.Drawing.Point(45, 205);
             this.btnDisconnectIP.Name = "btnDisconnectIP";
-            this.btnDisconnectIP.Size = new System.Drawing.Size(129, 23);
+            this.btnDisconnectIP.Size = new System.Drawing.Size(131, 28);
             this.btnDisconnectIP.TabIndex = 21;
             this.btnDisconnectIP.Text = "Disconnent Selected IP";
             this.btnDisconnectIP.UseVisualStyleBackColor = true;
@@ -190,9 +216,10 @@
             // 
             // btnSend
             // 
-            this.btnSend.Location = new System.Drawing.Point(400, 327);
+            this.btnSend.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSend.Location = new System.Drawing.Point(821, 521);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(74, 23);
+            this.btnSend.Size = new System.Drawing.Size(71, 29);
             this.btnSend.TabIndex = 23;
             this.btnSend.Text = "Send ";
             this.btnSend.UseVisualStyleBackColor = true;
@@ -200,34 +227,49 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(400, 234);
-            this.textBox1.MinimumSize = new System.Drawing.Size(100, 60);
+            this.textBox1.Location = new System.Drawing.Point(801, 393);
+            this.textBox1.MaximumSize = new System.Drawing.Size(400, 200);
+            this.textBox1.MinimumSize = new System.Drawing.Size(100, 100);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(172, 20);
+            this.textBox1.Size = new System.Drawing.Size(232, 100);
             this.textBox1.TabIndex = 24;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(500, 327);
+            this.button3.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(921, 521);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(72, 23);
+            this.button3.Size = new System.Drawing.Size(101, 29);
             this.button3.TabIndex = 25;
             this.button3.Text = "Send To All";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // rTxtBoxMessageHistory
             // 
-            this.rTxtBoxMessageHistory.Location = new System.Drawing.Point(400, 14);
+            this.rTxtBoxMessageHistory.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rTxtBoxMessageHistory.Location = new System.Drawing.Point(801, 38);
             this.rTxtBoxMessageHistory.Name = "rTxtBoxMessageHistory";
-            this.rTxtBoxMessageHistory.Size = new System.Drawing.Size(172, 202);
+            this.rTxtBoxMessageHistory.Size = new System.Drawing.Size(232, 336);
             this.rTxtBoxMessageHistory.TabIndex = 26;
             this.rTxtBoxMessageHistory.Text = "";
+            // 
+            // msgHistory
+            // 
+            this.msgHistory.AutoSize = true;
+            this.msgHistory.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.msgHistory.Font = new System.Drawing.Font("Modern No. 20", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.msgHistory.Location = new System.Drawing.Point(804, 4);
+            this.msgHistory.Name = "msgHistory";
+            this.msgHistory.Size = new System.Drawing.Size(188, 27);
+            this.msgHistory.TabIndex = 27;
+            this.msgHistory.Text = "Message History";
             // 
             // SCADA_mainDlg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 362);
+            this.ClientSize = new System.Drawing.Size(1035, 562);
+            this.Controls.Add(this.msgHistory);
             this.Controls.Add(this.rTxtBoxMessageHistory);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.textBox1);
@@ -246,7 +288,7 @@
             this.Controls.Add(this.newClientConnected);
             this.Controls.Add(this.btnStartStop);
             this.Controls.Add(this.lblPort);
-            this.MaximumSize = new System.Drawing.Size(600, 400);
+            this.MaximumSize = new System.Drawing.Size(1100, 600);
             this.MinimumSize = new System.Drawing.Size(300, 38);
             this.Name = "SCADA_mainDlg";
             this.Text = "SCADA Server";
@@ -277,6 +319,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.RichTextBox rTxtBoxMessageHistory;
+        private System.Windows.Forms.Label msgHistory;
     }
 }
 

@@ -74,6 +74,7 @@ namespace Clients_Dlg
                             //    Console.WriteLine(e.ToString());
                         }
                     }//if (client == null)
+                    Thread.Sleep(1000);
                 }//while(scadaServerSatate == CLIENT_STATES.Connect)
 
                 if (client != null)
@@ -86,6 +87,7 @@ namespace Clients_Dlg
                     client = null;
 
                 }//if (client != null)
+
                 
             }//public static void ConnectingThread()
 
@@ -105,7 +107,7 @@ namespace Clients_Dlg
                     btnConnectDisconnect.Text = "Disconnect";
                     btnConnectDisconnect.BackColor = System.Drawing.Color.Green;
                     port = (int)portAddress.Value;
-                    message = textMsgSend.Text;
+                    message = "123";
                     Thread clientThread = new Thread(new ThreadStart(ConnectingThread));
                     clientThread.Start();
                     //Thread.Sleep(1000);
