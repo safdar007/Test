@@ -18,12 +18,13 @@ namespace Clients_Dlg
             private static Mutex mut = new Mutex();
             static int port = 11;
             static string iPAdress = "192.168.0.104";
-            static string message = "...";
+            static string message = "";
             static Socket client = null; 
             enum CLIENT_STATES { Disconnect = 0, Connect = 1};
             static CLIENT_STATES scadaServerSatate;
             static int scadaPort = 0;
-
+            string receivedMsg = "";
+            byte[] buffer = new byte[1024];
             // The response from the remote device.
             private static String response = String.Empty;
 
@@ -125,6 +126,23 @@ namespace Clients_Dlg
 
             private void timerSCADAClient_Tick(object sender, EventArgs e)
             {
+                int getdata = 0;
+                if (client != null)
+                {
+                    while (client.Available > 0)
+                    {
+                        getdata = client.Receive(buffer);
+                        if (getdata > 0)
+                        {   receivedMsg += Encoding.ASCII.GetString(buffer, 0, getdata); }
+                    }//while(client.Available > 0 )
+
+                    if (receivedMsg.Length > 0)
+                    {
+                        listMsgHistory.Items.Add(client.RemoteEndPoint + " : " + receivedMsg + "\n");
+                        getdata = 0;
+                        receivedMsg = "";
+                    }
+                }//if (client != null)
                 if (client != null && !SocketConnected(client))
                 {
                     btnConnectDisconnect.Text = "Connect";

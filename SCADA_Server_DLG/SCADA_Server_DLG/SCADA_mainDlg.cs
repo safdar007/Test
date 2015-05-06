@@ -100,6 +100,7 @@ namespace SCADA_Server_DLG
                 {
                     //Console.WriteLine("Waiting for a connecting with Clint...");
                     Socket handleSocket = port.Accept();
+                    socketCnct = handleSocket;
                     receiveMsg = "";
                     while (handleSocket.Available > 0)
                     {
@@ -335,6 +336,40 @@ namespace SCADA_Server_DLG
             }
         private void btnSend_Click(object sender, EventArgs e)
         {
+            if (lstConnectedClients.SelectedItem != null)
+            {
+                string itemDisconnect = lstConnectedClients.SelectedItem.ToString();
+                for (int itemIndex = 0; itemIndex < lstConnectedClients.Items.Count; itemIndex++)
+                {
+                    Socket client = socketlist[itemIndex];
+                    string s = client.RemoteEndPoint.ToString();
+                    string currentClient = lstConnectedClients.Items[itemIndex].ToString();
+                    int index = currentClient.IndexOf(OPENING_BRACE);
+                    string requirString = currentClient.Substring(0, index);
+
+                    if (itemDisconnect == currentClient)
+                    {
+                        string writeMsg = textBoxWriteMsg.Text;
+                        byte[] nextMsgSend = Encoding.ASCII.GetBytes(writeMsg);
+                        client.Send(nextMsgSend);
+                    }
+
+                }//for (int itemIndex = 0; itemIndex < listAllConnected.Items.Count; itemIndex++)
+            }//if (listAllConnected.SelectedItem != null)
         }
+
+        private void btnSendAll_Click(object sender, EventArgs e)
+        {
+            if (socketlist.Count > 0)
+            {
+                for (int itemIndex = 0; itemIndex < socketlist.Count; itemIndex++)
+                {
+                    Socket client = socketlist[itemIndex];
+                    string writeMsg = textBoxWriteMsg.Text;
+                    byte[] nextMsgSend = Encoding.ASCII.GetBytes(writeMsg);
+                    client.Send(nextMsgSend);
+                }//for (int itemIndex = 0; itemIndex < lstConnectedClients.Items.Count; itemIndex++)
+            }//if (socketlist.Count > 0)
+        }//private void btnSendAll_Click(object sender, EventArgs e)
      }
 }

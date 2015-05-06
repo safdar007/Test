@@ -45,8 +45,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnDisconnectIP = new System.Windows.Forms.Button();
             this.btnSend = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.textBoxWriteMsg = new System.Windows.Forms.TextBox();
+            this.btnSendAll = new System.Windows.Forms.Button();
             this.rTxtBoxMessageHistory = new System.Windows.Forms.RichTextBox();
             this.msgHistory = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPort)).BeginInit();
@@ -103,7 +103,7 @@
             this.lstConnectedClients.ItemHeight = 15;
             this.lstConnectedClients.Location = new System.Drawing.Point(0, 39);
             this.lstConnectedClients.Name = "lstConnectedClients";
-            this.lstConnectedClients.Size = new System.Drawing.Size(256, 124);
+            this.lstConnectedClients.Size = new System.Drawing.Size(260, 124);
             this.lstConnectedClients.TabIndex = 10;
             // 
             // lstDisconnectIPs
@@ -113,7 +113,7 @@
             this.lstDisconnectIPs.ItemHeight = 15;
             this.lstDisconnectIPs.Location = new System.Drawing.Point(266, 38);
             this.lstDisconnectIPs.Name = "lstDisconnectIPs";
-            this.lstDisconnectIPs.Size = new System.Drawing.Size(256, 124);
+            this.lstDisconnectIPs.Size = new System.Drawing.Size(260, 124);
             this.lstDisconnectIPs.TabIndex = 11;
             // 
             // label1
@@ -189,7 +189,7 @@
             this.listAllConnected.ItemHeight = 15;
             this.listAllConnected.Location = new System.Drawing.Point(532, 37);
             this.listAllConnected.Name = "listAllConnected";
-            this.listAllConnected.Size = new System.Drawing.Size(256, 334);
+            this.listAllConnected.Size = new System.Drawing.Size(263, 334);
             this.listAllConnected.TabIndex = 19;
             // 
             // label3
@@ -225,33 +225,36 @@
             this.btnSend.UseVisualStyleBackColor = true;
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
-            // textBox1
+            // textBoxWriteMsg
             // 
-            this.textBox1.Location = new System.Drawing.Point(801, 393);
-            this.textBox1.MaximumSize = new System.Drawing.Size(400, 200);
-            this.textBox1.MinimumSize = new System.Drawing.Size(100, 100);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(232, 100);
-            this.textBox1.TabIndex = 24;
+            this.textBoxWriteMsg.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxWriteMsg.Location = new System.Drawing.Point(804, 390);
+            this.textBoxWriteMsg.MaximumSize = new System.Drawing.Size(400, 300);
+            this.textBoxWriteMsg.MinimumSize = new System.Drawing.Size(100, 100);
+            this.textBoxWriteMsg.Name = "textBoxWriteMsg";
+            this.textBoxWriteMsg.Size = new System.Drawing.Size(232, 100);
+            this.textBoxWriteMsg.TabIndex = 24;
+            this.textBoxWriteMsg.Text = "Server Message";
             // 
-            // button3
+            // btnSendAll
             // 
-            this.button3.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(921, 521);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(101, 29);
-            this.button3.TabIndex = 25;
-            this.button3.Text = "Send To All";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnSendAll.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSendAll.Location = new System.Drawing.Point(921, 521);
+            this.btnSendAll.Name = "btnSendAll";
+            this.btnSendAll.Size = new System.Drawing.Size(101, 29);
+            this.btnSendAll.TabIndex = 25;
+            this.btnSendAll.Text = "Send To All";
+            this.btnSendAll.UseVisualStyleBackColor = true;
+            this.btnSendAll.Click += new System.EventHandler(this.btnSendAll_Click);
             // 
             // rTxtBoxMessageHistory
             // 
-            this.rTxtBoxMessageHistory.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rTxtBoxMessageHistory.Location = new System.Drawing.Point(801, 38);
+            this.rTxtBoxMessageHistory.Font = new System.Drawing.Font("Modern No. 20", 11.2F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rTxtBoxMessageHistory.Location = new System.Drawing.Point(801, 36);
             this.rTxtBoxMessageHistory.Name = "rTxtBoxMessageHistory";
             this.rTxtBoxMessageHistory.Size = new System.Drawing.Size(232, 336);
             this.rTxtBoxMessageHistory.TabIndex = 26;
-            this.rTxtBoxMessageHistory.Text = "";
+            this.rTxtBoxMessageHistory.Text = "Clients Messages Histort";
             // 
             // msgHistory
             // 
@@ -271,8 +274,8 @@
             this.ClientSize = new System.Drawing.Size(1035, 562);
             this.Controls.Add(this.msgHistory);
             this.Controls.Add(this.rTxtBoxMessageHistory);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnSendAll);
+            this.Controls.Add(this.textBoxWriteMsg);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.btnDisconnectIP);
             this.Controls.Add(this.label3);
@@ -316,8 +319,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnDisconnectIP;
         private System.Windows.Forms.Button btnSend;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox textBoxWriteMsg;
+        private System.Windows.Forms.Button btnSendAll;
         private System.Windows.Forms.RichTextBox rTxtBoxMessageHistory;
         private System.Windows.Forms.Label msgHistory;
     }

@@ -45,9 +45,9 @@
             // 
             this.btnConnectDisconnect.BackColor = System.Drawing.SystemColors.Desktop;
             this.btnConnectDisconnect.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnConnectDisconnect.Location = new System.Drawing.Point(88, 172);
+            this.btnConnectDisconnect.Location = new System.Drawing.Point(82, 149);
             this.btnConnectDisconnect.Name = "btnConnectDisconnect";
-            this.btnConnectDisconnect.Size = new System.Drawing.Size(75, 23);
+            this.btnConnectDisconnect.Size = new System.Drawing.Size(87, 23);
             this.btnConnectDisconnect.TabIndex = 0;
             this.btnConnectDisconnect.Text = "Connect";
             this.btnConnectDisconnect.UseVisualStyleBackColor = false;
@@ -73,9 +73,10 @@
             // 
             // portAddress
             // 
+            this.portAddress.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.portAddress.Location = new System.Drawing.Point(75, 79);
             this.portAddress.Name = "portAddress";
-            this.portAddress.Size = new System.Drawing.Size(100, 20);
+            this.portAddress.Size = new System.Drawing.Size(100, 24);
             this.portAddress.TabIndex = 4;
             this.portAddress.Value = new decimal(new int[] {
             11,
@@ -85,34 +86,38 @@
             // 
             // txtServerIP
             // 
+            this.txtServerIP.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtServerIP.Location = new System.Drawing.Point(75, 53);
             this.txtServerIP.Name = "txtServerIP";
-            this.txtServerIP.Size = new System.Drawing.Size(100, 20);
+            this.txtServerIP.Size = new System.Drawing.Size(100, 24);
             this.txtServerIP.TabIndex = 3;
             this.txtServerIP.Text = "127.0.0.1";
             // 
             // listMsgHistory
             // 
+            this.listMsgHistory.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listMsgHistory.FormattingEnabled = true;
+            this.listMsgHistory.ItemHeight = 17;
             this.listMsgHistory.Location = new System.Drawing.Point(225, 7);
             this.listMsgHistory.Name = "listMsgHistory";
-            this.listMsgHistory.Size = new System.Drawing.Size(231, 147);
+            this.listMsgHistory.Size = new System.Drawing.Size(231, 140);
             this.listMsgHistory.TabIndex = 23;
             // 
             // textMsgSend
             // 
+            this.textMsgSend.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textMsgSend.Location = new System.Drawing.Point(225, 162);
             this.textMsgSend.MinimumSize = new System.Drawing.Size(100, 60);
             this.textMsgSend.Name = "textMsgSend";
-            this.textMsgSend.Size = new System.Drawing.Size(231, 20);
+            this.textMsgSend.Size = new System.Drawing.Size(231, 60);
             this.textMsgSend.TabIndex = 27;
             this.textMsgSend.Text = "Write text message";
             // 
             // sendButton
             // 
-            this.sendButton.Location = new System.Drawing.Point(296, 231);
+            this.sendButton.Location = new System.Drawing.Point(285, 231);
             this.sendButton.Name = "sendButton";
-            this.sendButton.Size = new System.Drawing.Size(74, 23);
+            this.sendButton.Size = new System.Drawing.Size(85, 23);
             this.sendButton.TabIndex = 26;
             this.sendButton.Text = "Send ";
             this.sendButton.UseVisualStyleBackColor = true;
